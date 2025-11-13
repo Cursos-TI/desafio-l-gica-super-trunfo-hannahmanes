@@ -9,16 +9,20 @@ int main() {
     // Definição das variáveis para armazenar as propriedades das cidades
     // Você pode utilizar o código do primeiro desafio
 
-    char estado, estado2, nome[50], nome2[50], codigo[10], codigo2[10];
-	// números inteiros para representar a população e pontos turísticos
-	int populacao, populacao2, pontos_turisticos, pontos_turisticos2;
+    // Informações sobre as cartas
+    char estado = 'A', estado2 = 'H'; 
+    char nome[50] = "São Paulo", nome2[50] = "Rio de Janeiro";
+    char codigo[10] = "A01", codigo2[10] = "H01";
+	int populacao = 12325000, populacao2 = 6748000; 
+    int pontos_turisticos = 50, pontos_turisticos2 = 30;
+	float area = 1521.11, area2 = 1200.25; 
+    float pib = 699.28, pib2 = 300.50;
+	float densidade_populacional1, densidade_populacional2;
     int opcao, comparacao;
-	// números decimais para a área e o pib
-	float area, area2, pib, pib2;
-	float pib_per_capita1, pib_per_capita2, densidade_populacional1, densidade_populacional2;
-	float inverso_densidade_populacional1, inverso_densidade_populacional2;
-    // long aumenta a capacidade de armazenamento das variaveis
-	long double super_poder1, super_poder2;
+
+    // Cálculo da densidade demográfica
+    densidade_populacional1 = (float)populacao / area;
+    densidade_populacional2 = (float)populacao2 / area2;
 
     printf("### Jogo de Super Trunfo ###\n\n");
     // Menu de inicialização
@@ -28,57 +32,7 @@ int main() {
     scanf("%d", &opcao);
     switch(opcao) {
         case 1:
-            // Informações sobre a carta 1
-            printf("\nInsira as informações sobre a carta 1: \n");
-            printf("Insira uma letra de A a H para representar o estado: ");
-            scanf(" %c", &estado);
-
-            printf("Insira o código da carta (a letra escolhida para o estado + um número de 01 a 04. Ex: A01, H04): ");
-            scanf("%s", codigo);
-
-            printf("Insira o nome da cidade: ");
-            scanf("%s", nome);
-
-            printf("Insira o número aproximado de habitantes da cidade (sem pontuação): ");
-            scanf("%d", &populacao);
-
-            printf("Insira a área da cidade em quilômetros quadrados (em números decimais, se necessário): ");
-            scanf("%f", &area);
-
-            printf("Insira o PIB (Produto Interno Bruto) da cidade (em números decimais, se necessário. Não é necessário adicionar pontos ou zeros (000) para a casa dos milhões e bilhões): ");
-            scanf("%f", &pib);
-
-            printf("Insira o número de pontos turísticos presentes na cidade: ");
-            scanf("%d", &pontos_turisticos);
-
-            // Informações sobre a carta 2
-            printf("\nInsira as informações sobre a carta 2: \n");
-            printf("Insira uma letra de A a H para representar o estado: ");
-            scanf(" %c", &estado2);
-
-            printf("Insira o código da carta (a letra escolhida para o estado + um número de 01 a 04. Ex: A01, H04): ");
-            scanf("%s", codigo2);
-
-            printf("Insira o nome da cidade: ");
-            scanf("%s", nome2);
-
-            printf("Insira o número aproximado de habitantes da cidade (sem pontuação): ");
-            scanf("%d", &populacao2);
-
-            printf("Insira a área da cidade em quilômetros quadrados (em números decimais, se necessário): ");
-            scanf("%f", &area2);
-
-            printf("Insira o PIB (Produto Interno Bruto) da cidade (em números decimais, se necessário. Não é necessário adicionar pontos ou zeros (000) para a casa dos milhões e bilhões): ");
-            scanf("%f", &pib2);
-
-            printf("Insira o número de pontos turísticos presentes na cidade: ");
-            scanf("%d", &pontos_turisticos2);
-
-            // Cálculo da densidade demográfica
-            densidade_populacional1 = (float)populacao / area;
-	        densidade_populacional2 = (float)populacao2 / area2;
-
-            // Area para comparação
+            // Menu interativo de seleção de atributos
             printf("\n### Hora da Batalha! ###\n");
             printf("Escolha um atributo para comparar: \n");
             printf("1. População\n");
@@ -88,6 +42,7 @@ int main() {
             printf("5. Densidade demográfica\n");
             scanf("%d", &comparacao);
 
+            // Area para comparação
             switch (comparacao) {
                 case 1:
                     printf("\n%s - População: %d\n", nome, populacao);
